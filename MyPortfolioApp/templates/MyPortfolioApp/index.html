@@ -1,0 +1,65 @@
+{% extends "MyPortfolioApp/layout.html" %}
+
+<div class="tab-content">
+  {% block content%}
+  <div class="mid">
+    <video autoplay muted loop>
+      <source
+        class="embed-responsive"
+        src="https://static.videezy.com/system/resources/previews/000/043/309/original/200128_03_Saber-rectangle-blue-pink-seamless-loop.mp4"
+        type="video/mp4"
+      />
+    </video>
+    <div class="hero text-center">
+      <h2 class="text-light display-4 font-weight-bold">
+        SAMUEL OLUWASEUN ANARI
+      </h2>
+      <p class="text-light mx-auto">
+        Business Data Afficionado / Full Stack Web Developer.
+      </p>
+      <p class="text-light mx-auto">
+        Analyzing and visualizing data to make better and informed business
+        decisions | Design Great Website with mindblowing functionalities
+      </p>
+      <a class="text-dark" href="#">Hire Me</a>
+    </div>
+  </div>
+
+  {% endblock %} {% block body%}
+
+  <!--Personal details-->
+  <section id="about" class="about py-5">
+    <div class="row align-items-center container my-5 mx-auto">
+      <div class="text col-lg-6 col-md-6 col-12 w-50 pt-5 pd-5">
+        <h6>PERSONAL DETAILS</h6>
+        <h2>A Glimpse of my career</h2>
+        <p>
+          My dream of being a computer scientist just like my dad didn't click
+          till my first Front End Development course I stumbled upon in college.
+          It incorporates creativity and problem solving and enough room to
+          break and modify codes.
+          <br />
+          As my specialty includes quickly learning new skills and programming
+          languages, problem solving, responsive design (website optimization)
+          and the Model View Controller (MVC) method of organizing code, I have
+          Java, Python (Django, Flask), JavaScript, HTML, CSS, MongoDB, Express,
+          React JS, Angular Js, Node JS, BootStrap, jQuery, SQL, PHP and many
+          more.
+          <br />
+          Excel, Tableau, PowerBI, Qlikview, MS Access, SQL, ApacheSpark,
+          Numpys, Sci-Kit, Pandas and many more...
+        </p>
+        <a href="{% url 'about'%}">About me</a>
+      </div>
+      <div class="img col-lg-6 col-md-6 col-12 w-50">
+        <img
+          class="img-fluid"
+          src="https://www.pngkit.com/png/full/53-535028_african-american-male-character-with-a-black-hair.png"
+          alt="about"
+        />
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}
+</div>

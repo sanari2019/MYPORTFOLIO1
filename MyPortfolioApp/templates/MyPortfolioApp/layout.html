@@ -1,0 +1,344 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive website with bootstrap</title>
+
+     <!-- fancybox -->
+     <link
+     rel="stylesheet prefetch"
+     href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css"
+   />
+   <!-- magnific-popup -->
+   <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
+   />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css" rel="stylesheet">
+
+    
+
+
+
+    <link rel="stylesheet" href="style.css" />
+    
+  
+
+  
+    <link href="{% static 'MyPortfolioApp/styles.css' %}" rel="stylesheet" />
+  </head>
+
+  <body data-spy="scroll" data-target="#navbarSupportedContent">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand"
+            href="#"
+            style="border: 2px solid white; padding: 5px"
+          >
+            S. O. Anari</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'about' %}" class="nav-link">About me</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'project' %}" class="nav-link">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a role="link" aria-disabled="true"   class="nav-link"
+                  >Cactus Technology</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="#contact-pointer" class="nav-link">Contact</a>
+              </li>
+            </ul>
+            {% for files in file %}
+            <button style="margin-right: 10px" onclick="location.href='{{files.file.url}}';" download="{{files.file.url}}" class="btn btn-success text-dark" type="submit">
+              {{files.description}}
+            </button>
+            {% endfor %}
+          </div>
+        </div>
+      </nav>
+      {% block content%} {% endblock %}
+    </header>
+
+    {% block body %} {% endblock %}
+
+    <!-- Footer -->
+    <footer class="page-footer font-small stylish-color-dark pt-4 text-light">
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+        <div class="footer-middle">
+          <div class="container">
+            <div class="row d-flex">
+              <div class="col-md-3 col-sm-6">
+                <!--Column1-->
+                <div class="footer-pad">
+                  <h4>
+                    <img
+                      src="{% static 'MyPortfolioApp/White2.PNG' %}"
+                      style="width: 60%"
+                    />
+                  </h4>
+                  <h5>AFFILIATES:</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="#">CACTUS TECHNOLOGY</a></li>
+                    <li><a href="#">RAYOMIMO NIG LTD.</a></li>
+                    <li><a href="#">MYITGUY</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <!--Column1-->
+                <div class="footer-pad">
+                  <h4><strong>Subscribe</strong> to our newsletter</h4>
+                  <h6 class="font-alt">
+                    Get updates on my new project in your inbox
+                  </h6>
+                  <br />
+                  <form class="form-subscribe" action="#">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control input-lg"
+                        placeholder="Your eamil address"
+                      />
+                      <span class="input-group-btn">
+                        <button class="btn btn-success btn-lg" type="submit">
+                          Subscribe
+                        </button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-3" id="contact-pointer">
+                <h4>Follow Me</h4>
+                <ul class="social-network social-circle">
+                  <li>
+                    <a href="#" class="icoTwitter" title="Twitter"
+                      ><i class="fab fa-twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="icoLinkedin" title="Linkedin"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="icoEmail" title="Email"
+                      ><i class="fa fa-envelope-open" aria-hidden="true"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="icoGithub" title="GitHub"
+                      ><i class="fab fa-github"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="icoWebsite" title="Website"
+                      ><i class="fas fa-globe"></i
+                    ></a>
+                  </li>
+                </ul>
+                <div class="info-section">
+                  <i class="fas fa-phone"></i>
+                  <span>(+234)813-421-8621</span>
+                </div>
+                <div class="info-section">
+                  <i class="fas fa-paper-plane"></i>
+                  <span>Samachoo2010@icloud.com</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 copy">
+                <p class="text-center">
+                  &copy; Copyright 2022 - <a href={%if user.is_authenticated%}
+                  {% url 'myforms' %}{%else%}{% url 'login' %}{%endif%}> S.O.
+                  Anari</a> All rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer -->
+
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.1.1/js/purecounter_vanilla.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.2.0/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+
+      <!-- JS Links -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"
+      ></script>
+      <!-- Mixitup -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.2.2/mixitup.min.js"></script>
+      <!-- fancybox -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+      <!-- Fancybox js -->
+      <script>
+         /**
+   * Porfolio isotope and filter
+   */
+  window.addEventListener('load', () => {
+    let portfolioContainer = select('.portfolio-container');
+    if (portfolioContainer) {
+      let portfolioIsotope = new Isotope(portfolioContainer, {
+        itemSelector: '.portfolio-item'
+      });
+
+      let portfolioFilters = select('#portfolio-flters li', true);
+
+      on('click', '#portfolio-flters li', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        portfolioIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+      }, true);
+    }
+
+  });
+
+  /**
+   * Initiate portfolio lightbox 
+   */
+  const portfolioLightbox = GLightbox({
+    selector: '.portfolio-lightbox'
+  });
+
+  /**
+   * Initiate portfolio details lightbox 
+   */
+  const portfolioDetailsLightbox = GLightbox({
+    selector: '.portfolio-details-lightbox',
+    width: '90%',
+    height: '90vh'
+  });
+
+  /**
+   * Portfolio details slider
+   */
+  new Swiper('.portfolio-details-slider', {
+    speed: 400,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+      </script>
+
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+
+       <!-- Fancybox js -->
+       <script>
+        /*Downloaded from https://www.codeseek.co/ezra_siton/mixitup-fancybox3-JydYqm */
+        // 1. querySelector
+        var containerEl = document.querySelector(".portfolio-item");
+        // 2. Passing the configuration object inline
+        //https://www.kunkalabs.com/mixitup/docs/configuration-object/
+        var mixer = mixitup(containerEl, {
+          animation: {
+            effects: "fade translateZ(-100px)",
+            effectsIn: "fade translateY(-100%)",
+            easing: "cubic-bezier(0.645, 0.045, 0.355, 1)",
+          },
+        });
+        // fancybox insilaze & options //
+        $("[data-fancybox]").fancybox({
+          loop: true,
+          hash: true,
+          transitionEffect: "slide",
+          /* zoom VS next////////////////////
+        clickContent - i modify the deafult - now when you click on the image you go to the next image - i more like this approach than zoom on desktop (This idea was in the classic/first lightbox) */
+          clickContent: function (current, event) {
+            return current.type === "image" ? "next" : false;
+          },
+        });
+      </script>
+
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

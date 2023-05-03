@@ -1,0 +1,341 @@
+{% extends "MyPortfolioApp/layout.html" %} {% load crispy_forms_tags %} <br />
+{% block body %}
+
+<html lang="en">
+  <head>
+    <meta Content-Type: text/html; charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Font links -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- CSS links-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- fancybox -->
+    <link
+      rel="stylesheet prefetch"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css"
+    />
+    <!-- magnific-popup -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
+    />
+  </head>
+
+  <body>
+    <section>
+
+      <div class="mid2">
+        <div class="section-title">
+          <h2 style="color: white; margin-top: 5%">portfolio</h2>
+          <p style="color: white; font-weight: 700">
+            The greater the potential for reward in the value portfolio, the
+            less risk there is -
+            <em style="font-weight: 300">Warren Buffet</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio-section portfolio" id="portfolio">
+
+    
+        <div class="portfolio-menu mt-2 mb-4">
+          <nav class="controls">
+            {% comment %} {{specialty.spec_name}}<br />
+            {% for spec in specialty%}
+            <button type="button" class="control outline" data-filter="all">
+              {{spec.spec_name }}
+            </button>
+            {% endfor %} {% endcomment %}
+            <button type="button" class="control outline" data-filter="all">
+              All
+            </button>
+            <button type="button" class="control outline" data-filter=".web">
+              Data
+            </button>
+            <button type="button" class="control outline" data-filter=".dev">
+              Software Development
+            </button>
+            <button type="button" class="control outline" data-filter=".wp">
+              Mentorship
+            </button>
+          </nav>
+        </div>
+
+
+
+
+        <div class="container" data-aos="fade-up">
+          <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+            
+            <ul class="row portfolio-item" style="list-style: none">
+
+              <li class="col-lg-4 col-md-6 portfolio-item filter-web">
+                <div class="portfolio-wrap">
+                  <img src="https://bootstrapmade.com/demo/templates/Kelly/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>{{project.project_name}}</h4>
+                    <p>Web</p>
+                    <div class="portfolio-links">
+                      <a href="https://bootstrapmade.com/demo/templates/Kelly/assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+
+              {% for project in portfolio %}
+
+              <div class="portfolio-item mix col-lg-4 col-md-6 {%if 'Full' in project.speciality.spec_name %}dev{% elif 'Data' in project.speciality.spec_name %} web{%endif%}">
+                <div class="portfolio-wrap">
+                  <img src="{{project.image_url}}" class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                    <h4>{{project.project_name}}</h4>
+                    <p>description</p>
+                    <div class="portfolio-links">
+                      <a href="{{project.image_url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                      <a href="{{project.project_url}}" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+
+            </ul>  
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+
+
+    
+  </body>
+
+
+    
+<style>
+      
+  /*--------------------------------------------------------------
+  # Portfolio
+  --------------------------------------------------------------*/
+  .portfolio .portfolio-item {
+    margin-bottom: 30px;
+  }
+
+  .portfolio #portfolio-flters {
+    padding: 0;
+    margin: 0 auto 20px auto;
+    list-style: none;
+    text-align: center;
+  }
+
+  .portfolio #portfolio-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px 10px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 50px;
+  }
+
+  .portfolio #portfolio-flters li:hover,
+  .portfolio #portfolio-flters li.filter-active {
+    color: #fff;
+    background: #34b7a7;
+  }
+
+  .portfolio #portfolio-flters li:last-child {
+    margin-right: 0;
+  }
+
+  .portfolio .portfolio-wrap {
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: rgba(34, 34, 34, 0.6);
+  }
+
+  .portfolio .portfolio-wrap::before {
+    content: "";
+    background: rgba(34, 34, 34, 0.6);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+  }
+
+  .portfolio .portfolio-wrap img {
+    transition: all ease-in-out 0.3s;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-info {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-info h4 {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-links {
+    text-align: center;
+    z-index: 4;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-links a {
+    color: #fff;
+    margin: 0 5px 0 0;
+    font-size: 28px;
+    display: inline-block;
+    transition: 0.3s;
+  }
+
+  .portfolio .portfolio-wrap .portfolio-links a:hover {
+    color: #78d9cd;
+  }
+
+  .portfolio .portfolio-wrap:hover::before {
+    opacity: 1;
+  }
+
+  .portfolio .portfolio-wrap:hover img {
+    transform: scale(1.2);
+  }
+
+  .portfolio .portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+  }
+
+  /*--------------------------------------------------------------
+  # Portfolio Details
+  --------------------------------------------------------------*/
+  .portfolio-details {
+    padding-top: 0;
+  }
+
+  .portfolio-details .portfolio-details-slider img {
+    width: 100%;
+  }
+
+  .portfolio-details .portfolio-details-slider .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+  }
+
+  .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    opacity: 1;
+    border: 1px solid #34b7a7;
+  }
+
+  .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #34b7a7;
+  }
+
+  .portfolio-details .portfolio-info {
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(34, 34, 34, 0.08);
+  }
+
+  .portfolio-details .portfolio-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .portfolio-details .portfolio-info ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+  }
+
+  .portfolio-details .portfolio-info ul li+li {
+    margin-top: 10px;
+  }
+
+  .portfolio-details .portfolio-description {
+    padding-top: 30px;
+  }
+
+  .portfolio-details .portfolio-description h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .portfolio-details .portfolio-description p {
+    padding: 0;
+  }
+
+</style>
+
+
+  
+
+
+
+      
+
+  </main><!-- End #main -->
+
+  
+
+  
+
+
+
+</html>
+{% endblock %}
