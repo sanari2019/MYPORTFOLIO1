@@ -12,7 +12,7 @@ html{
 }
 .navbar{
     background: #131313;
-    padding: 1rem 8rem;
+    padding: .3%;
     z-index: 1000;
 }
 
@@ -1208,7 +1208,7 @@ section {
 }
 .mixitup-control-active {
   color: #fff;
-  background: #28231D;
+  background: darkgreen;
 }
 .fancybox-container button:focus {
   outline: 0;
