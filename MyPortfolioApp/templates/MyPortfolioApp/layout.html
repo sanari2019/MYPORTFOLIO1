@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive website with bootstrap</title>
+    <title>Samuel Anari | {% url 'project' as project %}{% url 'about' as about %}{% if request.path == project %}Project{% elif request.path == about %}About{% elif request.path == contact %}Contact{% else %}Home{% endif %}</title>
 
      <!-- fancybox -->
      <link
