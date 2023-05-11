@@ -67,7 +67,9 @@ color: #00BF85;
 
 }
 .mid video{
-    width: 100%;
+    min-width: auto;
+    min-height: auto;
+    width: auto;
     height: 100%;
     pointer-events: none;
     object-fit: cover;
@@ -75,6 +77,18 @@ color: #00BF85;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.mid img{
+  min-height: auto;
+  width: auto;
+  min-width: auto;
+  height: 100%;
+  pointer-events: none;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .mid .hero{
     position: relative;
@@ -85,7 +99,7 @@ color: #00BF85;
     letter-spacing: 0.2px;
     padding-bottom: 1.1rem;
 }
-.mid .hero a{
+/* .mid .hero a{
     background: #00BF85;
     padding: 0.6rem 1.4rem;
     font-weight: 600;
@@ -95,7 +109,7 @@ color: #00BF85;
 
 .mid .hero a:hover{
     background: #fff;
-}
+} */
 .about{
     background: #060c21;
 
@@ -230,7 +244,7 @@ body > footer > ul.list-unstyled.list-inline.text-center.py-2 > li:nth-child(2) 
        
     }
     .mid .hero a{
-       font-size: 0.9rem;
+       font-size: 30px;
 
     }
 }
@@ -777,6 +791,21 @@ footer a:hover {
 
 /*SOCİAL İCONS*/
 
+
+/* Header Social Icons */
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+
 /* footer social icons */
 
 ul.social-network {
@@ -837,14 +866,14 @@ ul.social-network li {
   -webkit-border-radius: 50%;
   border-radius: 50%;
   text-align: center;
-  width: 30px;
-  height: 30px;
-  font-size: 15px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px;
 }
 
 .social-circle li i {
   margin: 0;
-  line-height: 30px;
+  line-height: 60px;
   text-align: center;
 }
 
